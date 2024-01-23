@@ -27,7 +27,6 @@ function App() {
     <BrowserRouter>
       <Route exact path="/">
         <div className="App">
-          <div className="card-container">{showCard}</div>
         </div>
       </Route>
       <Route path="/about">
