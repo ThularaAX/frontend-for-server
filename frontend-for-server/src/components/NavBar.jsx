@@ -13,7 +13,7 @@ export default function NavBar(){
 
     return (
         <nav>
-            <NavLink activeStyle= {active} style={style} to="/">Home</NavLink>
+            <NavLink exact activeStyle= {active} style={style} to="/">Home</NavLink>
             <NavLink activeStyle= {active} style={style} to="/about">About</NavLink>
             <NavLink activeStyle= {active} style={style} to="/contact">Contact</NavLink>
             <NavLink activeStyle= {active} style={style} to="/showdata"> Card</NavLink>
