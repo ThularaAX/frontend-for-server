@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import CardDb from "./components/CardDb";
 import About from "./pages/About";
+import showData from "./pages/showData";
 import Contact from "./pages/Contact";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/contact">
           <Contact />
+        </Route>
+        <Route path="/showData">
+
         </Route>
       </BrowserRouter>
     </div>
