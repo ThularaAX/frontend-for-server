@@ -1,9 +1,11 @@
-export default function showData() {
+export default function Showdata({showCard}) {
 
     return (
         <>
-        <h1>showData</h1>
-        <div className="card-container">{showCard}</div>
+        <h1>ShowData</h1>
+        <div className="card-container">
+            {showCard}
+        </div>
       </>
     )
 

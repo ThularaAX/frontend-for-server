@@ -2,7 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import CardDb from "./components/CardDb";
 import About from "./pages/About";
-import showData from "./pages/showData";
+import Showdata from "./pages/Showdata";
 import Contact from "./pages/Contact";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -34,8 +34,7 @@ function App() {
         <Route path="/contact">
           <Contact />
         </Route>
-        <Route path="/showData" render={() => <showData showCard={showCard} />}>
-        </Route>
+        <Route path="/showdata" render={() => <Showdata showCard={showCard} />} />
       </BrowserRouter>
     </div>
   );
