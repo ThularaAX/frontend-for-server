@@ -1,6 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react'
 import CardDb from './components/CardDb';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   const [dbList, setDbList] = useState([])
@@ -18,12 +19,15 @@ function App() {
     fetchDb()
   })
   return (
-    <div className="App">
-      <div className="card-container">
-      {showCard}
-      </div>
-     
-    </div>
+    <BrowserRouter>    
+      <Route path="/">
+        <div className="App">
+        <div className="card-container">
+          {showCard}
+        </div>
+        </div>
+      </Route>
+    </BrowserRouter>
   );
 }
 
