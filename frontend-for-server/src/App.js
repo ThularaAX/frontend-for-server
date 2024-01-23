@@ -19,7 +19,10 @@ function App() {
   })
   return (
     <div className="App">
-     {showCard}
+      <div className="card-container">
+      {showCard}
+      </div>
+     
     </div>
   );
 }
