@@ -2,6 +2,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min"
 
 export default function NavBar(){
 
+    
     return (
         <nav>
             <Link to="/">Home</Link>

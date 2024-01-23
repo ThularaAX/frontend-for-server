@@ -27,6 +27,15 @@
 .App-link {
   color: #61dafb;
 }
+
+nav{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 40px;
+}
+
 .card-container {
   display: flex;
   flex-direction: row;
