@@ -34,8 +34,7 @@ function App() {
         <Route path="/contact">
           <Contact />
         </Route>
-        <Route path="/showData">
-
+        <Route path="/showData" render={() => <showData showCard={showCard} />}>
         </Route>
       </BrowserRouter>
     </div>
