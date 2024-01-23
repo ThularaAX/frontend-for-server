@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Showdata from "./pages/Showdata";
 import Contact from "./pages/Contact";
 import { BrowserRouter, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [dbList, setDbList] = useState([]);
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <NavBar />
         <Route exact path="/">
           <Home />
         </Route>
