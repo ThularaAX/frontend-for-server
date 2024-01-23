@@ -10,7 +10,8 @@ function App() {
   async function fetchDb() {
     const response = await fetch('https://json-server-poke.onrender.com/card')
     const data = await response.json()
-    
+
+    setDbList(data)
     console.log(data)
   }
   useEffect(()=>{
