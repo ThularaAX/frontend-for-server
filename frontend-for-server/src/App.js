@@ -5,7 +5,7 @@ import CardDb from './components/CardDb';
 function App() {
   const [dbList, setDbList] = useState([])
 
-  const showCard = dbList.map((card) => <CardDb name={card.name} />)
+  const showCard = dbList.map((card) => <CardDb name={card.name} image={card.image}/>)
 
   async function fetchDb() {
     const response = await fetch('https://json-server-poke.onrender.com/card')
