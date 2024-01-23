@@ -9,7 +9,7 @@ function App() {
   const [dbList, setDbList] = useState([]);
 
   const showCard = dbList.map((card) => (
-    <CardDb key ={card.id} name={card.name} image={card.image} />
+    <CardDb key={card.id} name={card.name} image={card.image} />
   ));
 
   async function fetchDb() {
@@ -24,18 +24,17 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Route exact path="/">
-        <div className="App">
-        </div>
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      <Route path="/contact">
-        <Contact />
-      </Route>
-    </BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <Route exact path="/"></Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+      </BrowserRouter>
+    </div>
   );
 }
 
