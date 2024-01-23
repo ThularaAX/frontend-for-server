@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import CardDb from "./components/CardDb";
+import Home from "./pages/Home";
 import About from "./pages/About";
 import Showdata from "./pages/Showdata";
 import Contact from "./pages/Contact";
@@ -27,7 +28,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route exact path="/"></Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/about">
           <About />
         </Route>
