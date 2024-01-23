@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min"
 export default function NavBar(){
 
     const style =   
-        { color: 'white',
-        backgroundColor: "gray" }
+        { color: 'black',
+        backgroundColor: "white" }
 
     const active = {
-        color: 'Red',
+        color: 'teal',
         backgroundColor: "Black"
     }
 
