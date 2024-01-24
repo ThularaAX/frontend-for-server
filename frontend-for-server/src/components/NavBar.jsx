@@ -17,6 +17,7 @@ export default function NavBar(){
             <NavLink activeStyle= {active} style={style} to="/about">About</NavLink>
             <NavLink activeStyle= {active} style={style} to="/contact">Contact</NavLink>
             <NavLink activeStyle= {active} style={style} to="/showdata"> Card</NavLink>
+            <NavLink activeStyle= {active} style={style} to="/cardpage"> Page</NavLink>
         </nav>
     )
 

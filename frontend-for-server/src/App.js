@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Showdata from "./pages/Showdata";
 import Contact from "./pages/Contact";
+import CardPage from "./pages/CardPage";
 import { BrowserRouter, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
@@ -29,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar />
+        <NavBar />
         <Route exact path="/">
           <Home />
         </Route>
@@ -39,7 +40,14 @@ function App() {
         <Route path="/contact">
           <Contact />
         </Route>
-        <Route path="/showdata" render={() => <Showdata showCard={showCard} />} />
+
+        <Route
+          path="/showdata"
+          render={() => <Showdata showCard={showCard} />}
+        />
+        <Route path="/cardpage">
+          <CardPage />
+        </Route>
       </BrowserRouter>
     </div>
   );
