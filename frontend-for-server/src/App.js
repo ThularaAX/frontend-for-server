@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import CardDb from "./components/CardDb";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Showdata from "./pages/Showdata";
+import ShowData from "./pages/ShowData";
 import Contact from "./pages/Contact";
-import CardPage from "./pages/CardPage";
 import { BrowserRouter, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
@@ -43,11 +42,8 @@ function App() {
 
         <Route
           path="/showdata"
-          render={() => <Showdata showCard={showCard} />}
+          render={() => <ShowData showCard={showCard} />}
         />
-        <Route path="/cardpage">
-          <CardPage />
-        </Route>
       </BrowserRouter>
     </div>
   );

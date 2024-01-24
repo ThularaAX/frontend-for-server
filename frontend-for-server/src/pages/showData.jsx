@@ -1,6 +1,7 @@
+import "./ShowData.css";
 import React, { useState } from 'react';
 
-export default function Showdata({ showCard }) {
+export default function ShowData({ showCard }) {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editedItem, setEditedItem] = useState(null);
@@ -32,7 +33,6 @@ export default function Showdata({ showCard }) {
 
   return (
     <div className="showdata">
-      <h1>ShowData</h1>
       <div className="left-panel">
         <h2>DB List Items</h2>
         <ul>
@@ -47,7 +47,7 @@ export default function Showdata({ showCard }) {
           ))}
         </ul>
       </div>
-      <div className="right-panel">
+      <div className="right-panel fixed-panel">
         {isEditing ? (
           <>
             <h2>Edit Item</h2>
@@ -81,3 +81,6 @@ export default function Showdata({ showCard }) {
     </div>
   );
 }
+
+
+
