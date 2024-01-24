@@ -4,14 +4,17 @@ import React, { useState } from 'react';
 export default function ShowData({ showCard }) {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [isCreating, setIsCreating] = useState(false);
   const [editedItem, setEditedItem] = useState(null);
+  const [newItem, setNewItem] = useState({ name: '', description: '' });
 
   const handleItemClick = (item) => {
-    if (!isEditing) {
+    if (!isEditing && !isCreating) {
       setSelectedItem(item);
     } else {
       setEditedItem(null);
       setIsEditing(false);
+      setIsCreating(false);
       setSelectedItem(item);
     }
   };
@@ -19,18 +22,34 @@ export default function ShowData({ showCard }) {
   const handleEdit = () => {
     setIsEditing(true);
     setEditedItem({ ...selectedItem });
+    setIsCreating(false);
   };
 
   const handleSave = () => {
     setSelectedItem(editedItem);
     setIsEditing(false);
+    setIsCreating(false);
   };
 
   const handleCancel = () => {
     setEditedItem(null);
     setIsEditing(false);
+    setIsCreating(false);
   };
 
+  const handleCreateToggle = () => {
+    setIsCreating(!isCreating);
+    setEditedItem(null);
+    setIsEditing(false);
+    setSelectedItem(null);
+  };
+
+  const handleCreateSave = () => {
+    const newItemWithId = { ...newItem, id: Math.random() }; 
+    showCard.push(newItemWithId);
+    setNewItem({ name: '', description: '' }); 
+  };
+  
   return (
     <div className="showdata">
       <div className="left-panel">
@@ -63,9 +82,26 @@ export default function ShowData({ showCard }) {
             <button onClick={handleSave}>Save</button>
             <button onClick={handleCancel}>Cancel</button>
           </>
-        ) : (
-          <>
-            <h2>Selected Item</h2>
+         ) : isCreating ? (
+            <>
+              <input
+                type="text"
+                placeholder="Name"
+                value={newItem.name}
+                onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+              />
+              <textarea
+                placeholder="Description"
+                value={newItem.description}
+                onChange={(e) =>
+                  setNewItem({ ...newItem, description: e.target.value })
+                }
+              />
+              <button onClick={handleCreateSave}>Save</button>
+              <button onClick={handleCancel}>Cancel</button>
+            </>
+          ) : (
+            <>
             {selectedItem ? (
               <div>
                 <h3>{selectedItem.props.name}</h3>
@@ -77,6 +113,9 @@ export default function ShowData({ showCard }) {
             )}
           </>
         )}
+        <button onClick={handleCreateToggle}>
+        {isCreating ? 'Cancel Create' : 'Create New'}
+      </button>
       </div>
     </div>
   );
