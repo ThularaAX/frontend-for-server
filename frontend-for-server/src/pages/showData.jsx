@@ -7,6 +7,7 @@ export default function ShowData({ showCard }) {
   const [isCreating, setIsCreating] = useState(false);
   const [editedItem, setEditedItem] = useState(null);
   const [newItem, setNewItem] = useState({ name: '', description: '' });
+  const [filterText, setFilterText] = useState('');
 
   const handleItemClick = (item) => {
     if (!isEditing && !isCreating) {
@@ -50,10 +51,20 @@ export default function ShowData({ showCard }) {
     setNewItem({ name: '', description: '' }); 
   };
   
+  const filteredItems = showCard.filter((card) =>
+    card.name && card.name.toLowerCase().includes(filterText.toLowerCase())
+    );
+
   return (
     <div className="showdata">
       <div className="left-panel">
         <h2>DB List Items</h2>
+        <input
+          type="text"
+          placeholder="Filter by Name"
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+        />
         <ul>
           {showCard.map((card) => (
             <li
@@ -65,8 +76,27 @@ export default function ShowData({ showCard }) {
             </li>
           ))}
         </ul>
+
       </div>
       <div className="right-panel fixed-panel">
+      <h2>Filter by Name</h2>
+        <input
+          type="text"
+          placeholder="Filter by Name"
+          value={filterText}
+          onChange={(e) => setFilterText(e.target.value)}
+        />
+        <ul>
+          {filteredItems.map((card) => (
+            <li
+              key={card.name}
+              image={card.image}
+              onClick={() => handleItemClick(card)}
+            >
+              {card.name}
+            </li>
+          ))}
+        </ul>
         {isEditing ? (
           <>
             <h2>Edit Item</h2>
@@ -120,6 +150,3 @@ export default function ShowData({ showCard }) {
     </div>
   );
 }
-
-
-
