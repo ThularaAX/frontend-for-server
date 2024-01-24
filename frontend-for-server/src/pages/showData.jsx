@@ -52,19 +52,21 @@ export default function ShowData({ showCard }) {
   };
   
   const filteredItems = showCard.filter((card) =>
-    card.name && card.name.toLowerCase().includes(filterText.toLowerCase())
-    );
+  card.name && typeof card.name === 'string' && card.name.toLowerCase().includes(filterText.toLowerCase())
+);
+
 
   return (
     <div className="showdata">
       <div className="left-panel">
         <h2>DB List Items</h2>
-        <input
+        
+        {/* <input
           type="text"
           placeholder="Filter by Name"
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
-        />
+        /> */}
         <ul>
           {showCard.map((card) => (
             <li
@@ -89,14 +91,14 @@ export default function ShowData({ showCard }) {
         <ul>
           {filteredItems.map((card) => (
             <li
-              key={card.name}
-              image={card.image}
+            key={card.id || card.name}
               onClick={() => handleItemClick(card)}
             >
               {card.name}
             </li>
           ))}
         </ul>
+
         {isEditing ? (
           <>
             <h2>Edit Item</h2>
